@@ -1,0 +1,58 @@
+﻿using System.Threading.Tasks;
+using ChemWebsite.API.Controllers;
+using ChemWebsite.Data.Dto;
+using ChemWebsite.MediatR.Queries;
+using ChemWebsite.Repository;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
+namespace DocumentManagement.API.Controllers
+{
+    /// <summary>
+    /// DocumentLibrary
+    /// </summary>
+    [Route("api")]
+    [ApiController]
+    [Authorize]
+    public class DocumentLibraryController : BaseController
+    {
+        public IMediator _mediator { get; set; }
+
+        /// <summary>
+        /// DocumentLibrary
+        /// </summary>
+        /// <param name="mediator"></param>
+        public DocumentLibraryController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+        /// <summary>
+        /// Get Document list which user allow to view
+        /// </summary>
+        /// <param name="documentResource"></param>
+        /// <returns></returns>
+        [HttpGet("DocumentLibraries")]
+        [Produces("application/json", "application/xml", Type = typeof(DocumentList))]
+        public async Task<IActionResult> GetDocumentLibraries([FromQuery] DocumentResource documentResource)
+        {
+            var getDocumentLibraryQuery = new GetDocumentLibraryQuery
+            {
+                DocumentResource = documentResource
+            };
+            var result = await _mediator.Send(getDocumentLibraryQuery);
+            var paginationMetadata = new
+            {
+                totalCount = result.TotalCount,
+                pageSize = result.PageSize,
+                skip = result.Skip,
+                totalPages = result.TotalPages
+            };
+
+            Response.Headers.Add("X-Pagination",
+                Newtonsoft.Json.JsonConvert.SerializeObject(paginationMetadata));
+
+            return Ok(result);
+        }
+    }
+}

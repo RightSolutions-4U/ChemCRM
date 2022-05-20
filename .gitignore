@@ -1,0 +1,40 @@
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+
+# Visual Studio Code
+.vscode
+.vs/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
+.vs
+/ChemWebsite.API/wwwroot/ArticleImages
+/ChemWebsite.API/wwwroot/TestimonialImages
+/ChemWebsite.API/wwwroot/Users
+/ChemWebsite.API/wwwroot/ChemicalImages
+/ChemWebsite.API/wwwroot/SupplierImages
+/ChemWebsite.API/wwwroot/Attachments
+/ChemWebsite.API/wwwroot/CustomerImages
+/ChemWebsite.API/wwwroot/Documents
+/ChemWebsite.API/wwwroot/CompanyLogo

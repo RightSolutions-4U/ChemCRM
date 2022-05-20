@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="AWSSDK.SimpleEmail" Version="3.3.101.53" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChemWebsite.Common\ChemWebsite.Common.csproj" />
+    <ProjectReference Include="..\ChemWebsite.Data\ChemWebsite.Data.csproj" />
+    <ProjectReference Include="..\ChemWebsite.Domain\ChemWebsite.Domain.csproj" />
+    <ProjectReference Include="..\ChemWebsite.Helper\ChemWebsite.Helper.csproj" />
+  </ItemGroup>
+
+</Project>
